@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<title>UserLoginFrontEnd</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+		
+		<link rel="stylesheet" href="css/demo.css">
+		<link rel="stylesheet" href="css/sky-forms.css">
+		
+	</head>
+	<body class="bg-cyan">
+		<div class="body body-s">
+		
+			<form action="LoginUserPage.jsp" class="sky-form">
+				<header>User Login</header>
+				
+				<fieldset>					
+					<section>
+						<label class="input">
+							<i class="icon-append icon-user"></i>
+							 <input type="text" name="name" placeholder="Username" required="required" >
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+					</section>
+                                   
+					<section>
+						<label class="input">
+							<i class="icon-append icon-lock"></i>
+							<input type="password" name="pass" placeholder="Password" required="required" >
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+					</section>
+					
+					
+				</fieldset>
+					
+				
+				<footer>
+					<button type="submit" class="button">Login</button>
+                                        <button type="reset" class="button">Clear</button>
+                                        
+				</footer>
+			</form>
+			
+		</div>
+	</body>
+</html>
