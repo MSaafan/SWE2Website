@@ -54,8 +54,8 @@
           if(x==0)
           {
               
-             st.executeUpdate("Insert Into `onlinestore`.`user` (userName,UserMail,UserPass) values ('" +uname + "','" +  mail +  "', '" +  pass + "' );");
-                out.println("INSERTED SUCCESSFUL"); 
+             st.executeUpdate("Insert Into `onlinestore`.`user` (userName,userMail,userPass) values ('" +uname + "','" +  mail +  "', '" +  pass + "' );");
+                out.println("INSERTED SUCCESSFULLY"); 
                 out.println(" <a href='LoginUserForm.html'> Go To Login   ");
               
           }

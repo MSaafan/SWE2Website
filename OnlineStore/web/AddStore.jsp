@@ -1,6 +1,6 @@
 <%-- 
     Document   : AddProduct
-    Created on : 06-Mar-2018, 21:38:45
+    Created on : 13-Mar-2018, 21:38:45
     Author     : Momo
 --%>
 
@@ -27,19 +27,19 @@
         ResultSet RS = null;
         
         
-        String name = request.getParameter("pName");
-        String price = request.getParameter("pPrice");
-        String category = request.getParameter("pCategory");
-        String brand = request.getParameter("pBrand");
+        String name = request.getParameter("sName");
+        String location = request.getParameter("sLocation");
+        String type = request.getParameter("sType");                
         
-        
+        String curName = (String)session.getAttribute("username");
                con = DriverManager.getConnection(url, user, password);
                st = con.createStatement();
-
-             st.executeUpdate("Insert Into `onlinestore`.`product` (productName,productPrice,productCategory,productBrand) values ('" +name + "','" +  price +  "', '" + category +  "', '" + brand + "' );");
+               
+        
+             st.executeUpdate("Insert Into `onlinestore`.`store` (storeName,storeLocation,storeType,storeOwner) values ('" +name + "','" +  location +  "', '" +  type +  "', '" + curName + "' );");
                 out.println("INSERTED SUCCESSFULLY<br>"); 
-                out.println(" <a href='AdminPage.html'> Back to Admin Page   <br>");
-                out.println(" <a href='AddProduct.html'> Add Another Product   <br>");
+                out.println(" <a href='UserPage.html'> Back to User Page   <br>");
+                out.println(" <a href='AddStore.html'> Add Another Store   <br>");
               
          
                 %>

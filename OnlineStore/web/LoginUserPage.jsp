@@ -41,10 +41,10 @@
                 while (RS.next()) {
 
                     if (RS.getString("userName").equals(name) && RS.getString("userPass").equals(pass)) {
-                        out.print(RS.getString("userName") + "-");
-                        out.print(RS.getString("userPass") + "-");
                         session.setAttribute("name", RS.getString("username"));
                         session.setAttribute("pass", RS.getString("userPass"));
+                         out.print(RS.getString("userName") + "-");
+                        out.print(RS.getString("userPass") + "-");
                         response.sendRedirect("UserPage.html");
                         x = 1;
                     }
