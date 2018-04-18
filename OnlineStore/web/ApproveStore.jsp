@@ -32,13 +32,14 @@
             try {
                 con = DriverManager.getConnection(url, user, password);
                st = con.createStatement();
-               RS=st.executeQuery("UPDATE `onlinestore`.`store` SET `isApproved`='1' WHERE `storeID`=' "+ storeID + "';`");
+               RS=st.executeQuery("UPDATE `onlinestore`.`store` SET `isApproved`='1' WHERE `storeID`="+ storeID +";");
             } catch (Exception cnfe) {
                 System.err.println("Exception: " + cnfe);
             }
             out.println("Store Approved SUCCESSFULLY<br>"); 
             out.println(" <a href='AdminPage.html'> Back to Admin Page   <br>");
             out.println(" <a href='BrowseUnapprovedStore.jsp'> Approve Another Store   <br>");
+            
         %>
     </body>
 </html>

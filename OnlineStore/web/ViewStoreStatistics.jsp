@@ -21,7 +21,7 @@
     <body>
         <h1 align="center"><span style="background-color: #FFFFFF">Stores List</span></h1>
         <%
-            String url = "jdbc:mysql://localhost:3306/onlinestore";
+          String url = "jdbc:mysql://localhost:3306/onlinestore";
           String user = "root"; //write your username
           String password = "root"; // write your password  
             
