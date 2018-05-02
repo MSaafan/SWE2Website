@@ -5,8 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
-<%Class.forName("com.mysql.jdbc.Driver").newInstance();%>
+<%@page import="java.sql.*" %>
+<%@page import="javax.sql.*" %>
+<%@page import="java.lang.Class"%>
+<%Class.forName("com.mysql.jdbc.Driver");%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,27 +35,42 @@
             try {
                 con = DriverManager.getConnection(url, user, password);
                st = con.createStatement();
-               RS=st.executeQuery("SELECT productID FROM onlinestore.store_product WHERE storeID = "+ storeID +";");
+               RS=st.executeQuery("SELECT * FROM onlinestore.product where productID IN  (SELECT productID FROM onlinestore.store_product WHERE storeID = "+ storeID +");");
             } catch (Exception cnfe) {
                 System.err.println("Exception: " + cnfe);
             }
-        %>
-        <table border="4" width="100%" bordercolorlight="#000000" bgcolor="#FFFFFF">
+            %>
+              
+            <table border="4" width="100%" bordercolorlight="#000000" bgcolor="#FFFFFF">
             <tr>
                 <th>Product ID </th>
+                <th>Product Name </th>
+                <th>Product Price </th>
+                <th>Product Category </th>
+                <th>Product Brand </th>
                 
             </tr>
             
-            <%
-                while (RS.next()) { %>
-            <tr>
+           <%
+            
+            while (RS.next()) { 
+              %>
+              
+              <tr>
               <td><%=RS.getString("productID")%></td>
+              <td><%=RS.getString("productName")%></td>
+              <td><%=RS.getString("productPrice")%></td>
+              <td><%=RS.getString("productCategory")%></td>
+              <td><%=RS.getString("productBrand")%></td>
             </tr>
-
-            <%}%>
+            
+              <%
+            }
+        %>
+        
         </table>
         
-        <form action="Buy.jsp" class="sky-form">
+        <form action="BuyConfirm.jsp" class="sky-form">
 				<header>Buy</header>
 				
 				<fieldset>					
@@ -75,9 +92,18 @@
 					</section>
                                     </fieldset>
 					
+                                <fieldset>					
+					<section>
+						<label class="input">
+							<i class="icon-append icon-envelope-alt"></i>
+							 <input type="text" name="shippingAddress" placeholder="Shipping Address" required="required" >
+							<b class="tooltip tooltip-bottom-right">Only numbers</b>
+						</label>
+					</section>
+                                    </fieldset>
 				
 				<footer>
-					<button type="submit" class="button">Buy</button>
+					<button type="submit" class="button">Confirm Provided Info</button>
                                         <button type="reset" class="button">Clear</button>
                                         
 				</footer>

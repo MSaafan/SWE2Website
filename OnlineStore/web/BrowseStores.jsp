@@ -5,8 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
-<%Class.forName("com.mysql.jdbc.Driver").newInstance();%>
+<%@page import="java.sql.*" %>
+<%@page import="javax.sql.*" %>
+<%@page import="java.lang.Class"%>
+<%Class.forName("com.mysql.jdbc.Driver");%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,7 +64,7 @@
         </table>
         
         <form action="BrowseThisStore.jsp" class="sky-form">
-				<header>Approve Store</header>
+				<header>Browse Store</header>
 				
 				<fieldset>					
 					<section>

@@ -5,8 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
-<%Class.forName("com.mysql.jdbc.Driver").newInstance();%>
+<%@page import="java.sql.*" %>
+<%@page import="javax.sql.*" %>
+<%@page import="java.lang.Class"%>
+<%Class.forName("com.mysql.jdbc.Driver");%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +24,7 @@
           String user = "root"; //write your username
           String password = "root"; // write your password  
 
-        Connection con=null;
+        Connection con = null;
         Statement st = null;
         ResultSet RS = null;
         
@@ -31,9 +33,9 @@
         String location = request.getParameter("sLocation");
         String type = request.getParameter("sType");                
         
-        String curName = (String)session.getAttribute("username");
-               con = DriverManager.getConnection(url, user, password);
-               st = con.createStatement();
+        String curName = session.getAttribute("name").toString();
+        con = DriverManager.getConnection(url, user, password);
+        st = con.createStatement();
                
         
              st.executeUpdate("Insert Into `onlinestore`.`store` (storeName,storeLocation,storeType,storeOwner) values ('" +name + "','" +  location +  "', '" +  type +  "', '" + curName + "' );");

@@ -28,14 +28,15 @@
             Connection con=null;
             Statement st = null;
             ResultSet RS = null;
-           String curName = (String)session.getAttribute("username");
+           String curName = (String)session.getAttribute("name");
             try {
                 con = DriverManager.getConnection(url, user, password);
                st = con.createStatement();
-               RS=st.executeQuery("SELECT * FROM onlinestore.store_product;");
+               RS=st.executeQuery("SELECT * FROM onlinestore.store_product WHERE userName = '"+curName+"';");
             } catch (Exception cnfe) {
                 System.err.println("Exception: " + cnfe);
             }
+            
         %>
         <table border="4" width="100%" bgcolor="#FFFFFF">
             <tr>
@@ -49,13 +50,11 @@
             <%
                 while (RS.next()) { %>
             <tr>
-                <%if(RS.getString("userName") == curName) {%>
               <td><%=RS.getString("storeID")%></td>
                <td><%=RS.getString("productID")%></td>
                 <td><%=RS.getString("numberOfViews")%></td>
                  <td><%=RS.getString("soldCount")%></td>
                  <td><%=RS.getString("stockCount")%></td>
-                <%}%>
             </tr>
 
             <%}%>

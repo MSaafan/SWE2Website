@@ -5,8 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*"%>
-<%Class.forName("com.mysql.jdbc.Driver").newInstance();%>
+<%@page import="java.sql.*" %>
+<%@page import="javax.sql.*" %>
+<%@page import="java.lang.Class"%>
+<%Class.forName("com.mysql.jdbc.Driver");%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,7 +34,7 @@
             try {
                 con = DriverManager.getConnection(url, user, password);
                st = con.createStatement();
-               RS=st.executeQuery("UPDATE `onlinestore`.`store` SET `isApproved`='1' WHERE `storeID`="+ storeID +";");
+               st.executeUpdate("UPDATE `onlinestore`.`store` SET `isApproved`='1' WHERE `storeID`="+ storeID +";");
             } catch (Exception cnfe) {
                 System.err.println("Exception: " + cnfe);
             }

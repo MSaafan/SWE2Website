@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/demo.css">
+        <link rel="stylesheet" href="css/sky-forms.css">
+		
+    </head>
+    <body>
+        <form action="AddCollaborator.jsp" class="sky-form">
+				<header>Add Product Form</header>
+				
+				<fieldset>					
+					<section>
+						<label class="input">
+							<i class="icon-append icon-envelope-alt"></i>
+							 <input type="text" name="cName" placeholder="Collaborator Name" required="required" >
+							<b class="tooltip tooltip-bottom-right">Only latin characters and numbers</b>
+						</label>
+					</section>
+                                       
+					<section>
+						<label class="input">
+							<i class="icon-append icon-envelope-alt"></i>
+							 <input type="text" name="sID" placeholder="Store ID" required="required" >
+							<b class="tooltip tooltip-bottom-right">Only numbers</b>
+						</label>
+					</section>
+                                    </fieldset>
+					
+				
+				<footer>
+					<button type="submit" class="button">Submit</button>
+                                        <button type="reset" class="button">Clear</button>
+                                        
+				</footer>
+			</form>
+    </body>
+</html>
